@@ -15,7 +15,7 @@
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 defined('ABSPATH') or die("No script kiddies please!"); ?>
-<table id="login" class="tab form-table hidden">
+<table id="login" class="tab form-table hidden" style="width:100%;">
 	<tbody> 
 		<tr valign="top">
 			<th class="titledesc" scope="row"> <label for="login_redirect_url">Login Redirect URL </label> </th>

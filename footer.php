@@ -19,4 +19,3 @@ defined('ABSPATH') or die("No script kiddies please!");
 </form>
 	
 </div>
-

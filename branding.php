@@ -17,14 +17,14 @@
     Plugin Name: Funny Brandings
     Plugin URI: http://varunsridharan.in/
     Description: A Funny Plugin to brand wp admin panel
-    Version: 0.1
+    Version: 0.3
     Author: Varun Sridharan
     Author URI: http://varunsridharan.in/
     License: GPL2
 */
 
-defined('ABSPATH') or die("No script kiddies please!");	
-$plug_url = plugins_url().'/funny_branding/';
+defined('ABSPATH') or die("No script kiddies please!");
+$plug_url = plugins_url().'/'.basename(__DIR__).'/';
 $path = plugin_dir_path( __FILE__ );
 
 # Register Plugin
@@ -58,7 +58,5 @@ function funny_brands() {
 	
 	# Plugins Footer File
 	require_once($path.'footer.php');
- 
-
 }
 ?>

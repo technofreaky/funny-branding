@@ -63,13 +63,7 @@ $layout .= '<tr valign="top">
 			<th class="titledesc" scope="row"> New String</th>
 			<th class="titledesc" scope="row">Option</th>
 		</tr>
-		
 		<?php echo $layout; ?>
-		
-		
- 
-		 
-		
  		<tr valign="top">
 			<th class="titledesc" scope="row"> <input id="addmore" class="button button-secondary" type="button" value="Add More" name="addmore"></th>
 			<td class="forminp forminp-select">

@@ -137,15 +137,6 @@ if(get_setting('smtp_status',true)){
 	}
 }
 
-
-
-
-
-
-
-
-
-
 if(get_setting('trans',true)){
 
 

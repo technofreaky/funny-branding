@@ -51,7 +51,4 @@ function get_setting($key,$return = false) {
 	}
    return false;
 }
-
-
-
 ?>

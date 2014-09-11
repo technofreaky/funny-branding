@@ -85,6 +85,4 @@ defined('ABSPATH') or die("No script kiddies please!"); ?>
 		</tr>
 		
 	</tbody>
-</table>
-
- 
+</table> 
