@@ -20,7 +20,7 @@ if ( is_admin() ){
  	add_action('admin_menu', 'Funny_brands_menu');
 	function Funny_brands_menu() {
 		add_options_page('Funny Brands', 'Funny Brandings', 'administrator','funny-brands', 'funny_brands');
- 		add_option("funnybrands", '', '', 'yes');
+ 		add_option("funnybranding", '', '', 'yes');
 	}
 
 }

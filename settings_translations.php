@@ -16,8 +16,8 @@
 */
 defined('ABSPATH') or die("No script kiddies please!");
 $total = 0;
-if(get_setting('trans',true)){
-$trans = array_values(get_setting('trans',true));
+if(funnyBranding_setting('trans',true)){
+$trans = array_values(funnyBranding_setting('trans',true));
 $total = count($trans);
 $layout = '';
 
@@ -26,11 +26,11 @@ foreach($trans as $k => $tra){
  
 	$layout .= '<tr valign="top">
 		<td class="forminp forminp-select">
-			<input id="trans['.$k.'][key]" class="regular-text" type="text" value="'.$tra['key'].'" name="trans['.$k.'][key]">
+			<input id="trans['.$k.'][key]" class="regular-text" type="text" value="'.$tra['key'].'" name="funnybranding[trans]['.$k.'][key]">
 		</td>
 		<td class="forminp forminp-select text-center"> ==> </td>
 		<td class="forminp forminp-select">
-			<input id="trans['.$k.'][val]" class="regular-text" type="text" value="'.$tra['val'].'" name="trans['.$k.'][val]">
+			<input id="trans['.$k.'][val]" class="regular-text" type="text" value="'.$tra['val'].'" name="funnybranding[trans]['.$k.'][val]">
 		</td>
 		<td class="forminp forminp-select">
 			<input id="delete" class="button button-secondary" type="button" value="Delete" name="delete">
@@ -41,11 +41,11 @@ foreach($trans as $k => $tra){
 } else  {
 $layout .= '<tr valign="top">
 		<td class="forminp forminp-select">
-			<input id="trans[0][key]" class="regular-text" type="text" name="trans[0][key]">
+			<input id="trans[0][key]" class="regular-text" type="text" name="funnybranding[trans][0][key]">
 		</td>
 		<td class="forminp forminp-select text-center"> ==> </td>
 		<td class="forminp forminp-select">
-			<input id="trans[0][val]" class="regular-text" type="text"  name="trans[0][val]">
+			<input id="trans[0][val]" class="regular-text" type="text"  name="funnybranding[trans][0][val]">
 		</td>
 		<td class="forminp forminp-select">
 			<input id="delete" class="button button-secondary" type="button" value="Delete" name="delete">

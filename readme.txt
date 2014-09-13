@@ -5,7 +5,7 @@ Donate link: http://varunsridharan.in/
 Tags: branding,smtp,translations
 Requires at least: 3.0.1
 Tested up to: 4.0
-Stable tag: 0.3
+Stable tag: 0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -26,6 +26,7 @@ Funny Branding is a simple plugin which helps you to brand your wordpress admin 
 * login url redirect
 * adjust auto logout time
 * add login page style & script
+* Added option to enqueue jQuery in WordPress login page
 * configure Email SMTP details  and use default wp_mail function
 * Dynimic translations
 
@@ -47,6 +48,12 @@ This section describes how to install the plugin and get it working.
 5. Dynimic Translations for Dynimic Text
 
 == Changelog ==
+
+= 0.4 =
+* Fixed plugin issue in WordPress 3.5.1
+* Added option to enqueue jQuery in WordPress login page
+* Login page script data written to a file insted of saving in WP-DB
+* Fixed plugin options saving method using array in post method
 
 = 0.3 =
 * Fixed Plugin Debug Erros

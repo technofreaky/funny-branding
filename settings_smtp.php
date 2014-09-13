@@ -19,14 +19,14 @@ defined('ABSPATH') or die("No script kiddies please!"); ?>
 	<tbody> 
 		<tr valign="top">
 			<th class="titledesc" scope="row"> <label for="smtp_status">Use SMTP</label> </th>
-			<td class="forminp forminp-select"> <label><input name="smtp_status" id="smtp_status" type="checkbox" class="ios-switch" <?php if(get_setting('smtp_status',true)) {echo 'checked'; } ?> /> </label>
+			<td class="forminp forminp-select"> <label><input name="funnybranding[smtp_status]" id="smtp_status" type="checkbox" class="ios-switch" <?php if(funnyBranding_setting('smtp_status',true)) {echo 'checked'; } ?> /> </label>
 				 
 			</td>
 		</tr>
 		
 		<tr valign="top">
 			<th class="titledesc" scope="row"> <label for="smtp_is_html">SMTP is HTML</label> </th>
-			<td class="forminp forminp-select"> <label><input name="smtp_is_html" id="smtp_is_html" type="checkbox" class="ios-switch" <?php if(get_setting('smtp_is_html',true)) {echo 'checked'; } ?> /> </label>
+			<td class="forminp forminp-select"> <label><input name="funnybranding[smtp_is_html]" id="smtp_is_html" type="checkbox" class="ios-switch" <?php if(funnyBranding_setting('smtp_is_html',true)) {echo 'checked'; } ?> /> </label>
 				 
 			</td>
 		</tr>
@@ -34,14 +34,14 @@ defined('ABSPATH') or die("No script kiddies please!"); ?>
 		
 		<tr valign="top">
 			<th class="titledesc" scope="row"> <label for="smtp_auth">SMTP Auth</label> </th>
-			<td class="forminp forminp-select"> <label><input name="smtp_auth" id="smtp_auth" type="checkbox" class="ios-switch" <?php if(get_setting('smtp_auth',true)) {echo 'checked'; } ?> /> </label>
+			<td class="forminp forminp-select"> <label><input name="funnybranding[smtp_auth]" id="smtp_auth" type="checkbox" class="ios-switch" <?php if(funnyBranding_setting('smtp_auth',true)) {echo 'checked'; } ?> /> </label>
 				 
 			</td>
 		</tr>		
 		<tr valign="top">
 			<th class="titledesc" scope="row"> <label for="smtp_host">SMTP Host</label> </th>
 			<td class="forminp forminp-select">
-				<input id="smtp_host" class="regular-text" type="text" value="<?php get_setting('smtp_host'); ?>" name="smtp_host">
+				<input id="smtp_host" class="regular-text" type="text" value="<?php funnyBranding_setting('smtp_host'); ?>" name="funnybranding[smtp_host]">
  			</td>
 		</tr>		
 
@@ -49,38 +49,38 @@ defined('ABSPATH') or die("No script kiddies please!"); ?>
 		
 		<tr valign="top">
 			<th class="titledesc" scope="row"> <label for="smtp_port">SMTP port</label> </th>
-			<td class="forminp forminp-select"> <input id="smtp_port" class="regular-text" type="text" value="<?php get_setting('smtp_port'); ?>" name="smtp_port">				 
+			<td class="forminp forminp-select"> <input id="smtp_port" class="regular-text" type="text" value="<?php funnyBranding_setting('smtp_port'); ?>" name="funnybranding[smtp_port]">				 
 			</td>
 		</tr>
 		
 		<tr valign="top">
 			<th class="titledesc" scope="row"> <label for="smtp_username">SMTP Username</label> </th>
-			<td class="forminp forminp-select"> <input id="smtp_username" class="regular-text" type="text" value="<?php get_setting('smtp_username'); ?>" name="smtp_username">				 
+			<td class="forminp forminp-select"> <input id="smtp_username" class="regular-text" type="text" value="<?php funnyBranding_setting('smtp_username'); ?>" name="funnybranding[smtp_username]">				 
 			</td>
 		</tr>
 		
 		
 		<tr valign="top">
 			<th class="titledesc" scope="row"> <label for="smtp_password">SMTP Password</label> </th>
-			<td class="forminp forminp-select"> <input id="smtp_password" class="regular-text" type="text" value="<?php get_setting('smtp_password'); ?>" name="smtp_password">				 
+			<td class="forminp forminp-select"> <input id="smtp_password" class="regular-text" type="text" value="<?php funnyBranding_setting('smtp_password'); ?>" name="funnybranding[smtp_password]">				 
 			</td>
 		</tr>		
 	
 		<tr valign="top">
 			<th class="titledesc" scope="row"> <label for="smtp_secure">SMTP Secure Type</label> </th>
-			<td class="forminp forminp-select"> <input id="smtp_secure" class="regular-text" type="text" value="<?php get_setting('smtp_secure'); ?>" name="smtp_secure">				 
+			<td class="forminp forminp-select"> <input id="smtp_secure" class="regular-text" type="text" value="<?php funnyBranding_setting('smtp_secure'); ?>" name="funnybranding[smtp_secure]">				 
 			</td>
 		</tr>
 	
 		<tr valign="top">
 			<th class="titledesc" scope="row"> <label for="smtp_fromid">SMTP From ID</label> </th>
-			<td class="forminp forminp-select"> <input id="smtp_fromid" class="regular-text" type="text" value="<?php get_setting('smtp_fromid'); ?>" name="smtp_fromid">				 
+			<td class="forminp forminp-select"> <input id="smtp_fromid" class="regular-text" type="text" value="<?php funnyBranding_setting('smtp_fromid'); ?>" name="funnybranding[smtp_fromid]">				 
 			</td>
 		</tr>
 	
 		<tr valign="top">
 			<th class="titledesc" scope="row"> <label for="smtp_from_name">SMTP From Name</label> </th>
-			<td class="forminp forminp-select"> <input id="smtp_from_name" class="regular-text" type="text" value="<?php get_setting('smtp_from_name'); ?>" name="smtp_from_name">				 
+			<td class="forminp forminp-select"> <input id="smtp_from_name" class="regular-text" type="text" value="<?php funnyBranding_setting('smtp_from_name'); ?>" name="funnybranding[smtp_from_name]">				 
 			</td>
 		</tr>		 
 		

@@ -17,18 +17,18 @@
 
 defined('ABSPATH') or die("No script kiddies please!");
 # Login Redirect Function
-if(get_setting('login_redirect_url',true)) {
+if(funnyBranding_setting('login_redirect_url',true)) {
 	
 	function admin_default_page() {
  
-		return get_setting('login_redirect_url',true);
+		return funnyBranding_setting('login_redirect_url',true);
 	}
 
 	add_filter('login_redirect', 'admin_default_page');
 }
  
 # Removes Footer Version
-if(get_setting('footer_verison_hide',true)) {
+if(funnyBranding_setting('footer_verison_hide',true)) {
 	function remove_footer_version() {
 		#if (get_option('version_hide_data') == 1){ return "";}else { return "Version ".get_bloginfo ('version'); }
 	return '';
@@ -37,7 +37,7 @@ if(get_setting('footer_verison_hide',true)) {
 }
 
 # close right menu bar
-if(get_setting('collapse_menu_bar',true)) {
+if(funnyBranding_setting('collapse_menu_bar',true)) {
 	function wp_admin_menu_colaps() {
 		echo "<script> jQuery(document).ready(function() { if ( !jQuery(document.body).hasClass('folded') ) { jQuery(document.body).addClass('folded'); } }); </script>";
 	} 
@@ -45,34 +45,41 @@ if(get_setting('collapse_menu_bar',true)) {
 }
  
 # change footer text
-if(get_setting('footer_text',true)) {
+if(funnyBranding_setting('footer_text',true)) {
 	function change_footer_text() { 
-		get_setting('footer_text'); 
+		funnyBranding_setting('footer_text'); 
 	} 
 	add_filter('admin_footer_text', 'change_footer_text');
 }
 
 
 # custom login page style
-if(get_setting('login_page_style',true)) {
+if(funnyBranding_setting('login_page_style',true)) {
 	function login_style(){
- 		echo '<style>'.get_setting('login_page_style',true).'</style>';
+ 		echo '<style>'.funnyBranding_setting('login_page_style',true).'</style>';
 	}
 	add_action( 'login_enqueue_scripts', 'login_style' );
 }
 
-
-# custom login page script
-if(get_setting('login_page_script',true)) {
-	function login_script(){
- 		echo '<script>'.get_setting('login_page_script',true).'</script>';
+# Add jQuery In Login Page
+if(funnyBranding_setting('user_jquery_login_page',true)) {
+	function jquery_login(){
+		wp_enqueue_script( 'jquery' );
 	}
-	add_action( 'login_enqueue_scripts', 'login_script' );
+	add_action( 'login_footer', 'jquery_login' );
 }
 
+# custom login page script
+if(funnyBranding_setting('user_login_script',true)) {
+	function login_script(){
+		global $login_js_url;
+ 		wp_enqueue_script('funny-branding-custom-login-script', $login_js_url, 'jquery', '1', true );  
+	}
+	add_action( 'login_footer', 'login_script' );
+}
 
 # custom login page script
-if(get_setting('add_codex_search_form',true)) {
+if(funnyBranding_setting('add_codex_search_form',true)) {
 	function wp_codex_search_form() {
 	echo '<form target="_blank" method="get" action="http://wordpress.org/search/do-search.php" class="alignright" style="margin: 11px 5px 0;">
 		<input type="text" onblur="this.value=(this.value==\'\') ? \'Search the Codex\' : this.value;" onfocus="this.value=(this.value==\'Search the Codex\') ? \'\' : this.value;" maxlength="150" value="Search the Codex" name="search" class="text"> <input type="submit" value="Go" class="button" />
@@ -83,18 +90,18 @@ if(get_setting('add_codex_search_form',true)) {
  
 
 # Custom logout Time
-if(get_setting('auto_logout_time',true)){
+if(funnyBranding_setting('auto_logout_time',true)){
 	function aut_logout_time( $expirein ) {
-	   return get_setting('auto_logout_time',true); // 1 year in seconds
+	   return funnyBranding_setting('auto_logout_time',true); // 1 year in seconds
 	}
 	add_filter( 'auth_cookie_expiration', 'aut_logout_time' );
 }
 
 
 # Custom favicon
-if(get_setting('custom_favicon',true)){
+if(funnyBranding_setting('custom_favicon',true)){
 	function custom_favicon() {
-	 echo '<link rel="shortcut icon" type="image/x-icon" href="' . get_setting('custom_favicon',true) . '" />';
+	 echo '<link rel="shortcut icon" type="image/x-icon" href="' . funnyBranding_setting('custom_favicon',true) . '" />';
 	}
 	add_action( 'admin_head', 'custom_favicon' );
 }
@@ -102,7 +109,7 @@ if(get_setting('custom_favicon',true)){
 
 
 # Website Screen Shot
-if(get_setting('web_shot',true)){
+if(funnyBranding_setting('web_shot',true)){
 
  function wpr_snap($atts, $content = null) {
         extract(shortcode_atts(array(
@@ -121,27 +128,27 @@ add_shortcode("snap", "wpr_snap");
 }
 
 # Custom SMTP Settings
-if(get_setting('smtp_status',true)){
+if(funnyBranding_setting('smtp_status',true)){
 	add_action('phpmailer_init','send_smtp_email');
 	function send_smtp_email( $phpmailer ) {
 		$phpmailer->isSMTP();
-		$phpmailer->IsHTML(get_setting('smtp_is_html',true));
-		$phpmailer->Host = get_setting('smtp_host',true);
-		$phpmailer->SMTPAuth = get_setting('smtp_auth',true);
-		$phpmailer->Port = get_setting('smtp_port',true);
-		$phpmailer->Username = get_setting('smtp_username',true);
-		$phpmailer->Password = get_setting('smtp_password',true);
-		$phpmailer->SMTPSecure = get_setting('smtp_secure',true);
-		$phpmailer->From =get_setting('smtp_fromid',true);
-		$phpmailer->FromName = get_setting('smtp_from_name',true);
+		$phpmailer->IsHTML(funnyBranding_setting('smtp_is_html',true));
+		$phpmailer->Host = funnyBranding_setting('smtp_host',true);
+		$phpmailer->SMTPAuth = funnyBranding_setting('smtp_auth',true);
+		$phpmailer->Port = funnyBranding_setting('smtp_port',true);
+		$phpmailer->Username = funnyBranding_setting('smtp_username',true);
+		$phpmailer->Password = funnyBranding_setting('smtp_password',true);
+		$phpmailer->SMTPSecure = funnyBranding_setting('smtp_secure',true);
+		$phpmailer->From =funnyBranding_setting('smtp_fromid',true);
+		$phpmailer->FromName = funnyBranding_setting('smtp_from_name',true);
 	}
 }
 
-if(get_setting('trans',true)){
+if(funnyBranding_setting('trans',true)){
 
 
 function learn_gettext( $translation, $text ) {
-   $trans = array_values(get_setting('trans',true));
+   $trans = array_values(funnyBranding_setting('trans',true));
    $dirty = false;
    $strings_map = array();
    $text_words = explode( ' ', $text );

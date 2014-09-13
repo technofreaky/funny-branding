@@ -15,12 +15,15 @@
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 defined('ABSPATH') or die("No script kiddies please!"); 
-global $plug_url; 
-?>
+global $plug_url,$notice;
+
+?> 
+
 <link href="<?php echo $plug_url; ?>css/font-awesome.min.css" rel="stylesheet"/>
 <link href="<?php echo $plug_url; ?>css/style.css" rel="stylesheet"/>
 <script src="<?php echo $plug_url; ?>js/script.js"></script>
 <div class="wrap">
+	<?php echo $notice; ?>
 	<h2>Funny Brandings</h2>
  
  	

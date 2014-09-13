@@ -17,7 +17,7 @@
     Plugin Name: Funny Brandings
     Plugin URI: http://varunsridharan.in/
     Description: A Funny Plugin to brand wp admin panel
-    Version: 0.3
+    Version: 0.4
     Author: Varun Sridharan
     Author URI: http://varunsridharan.in/
     License: GPL2
@@ -28,35 +28,35 @@ $plug_url = plugins_url().'/'.basename(__DIR__).'/';
 $path = plugin_dir_path( __FILE__ );
 
 # Register Plugin
-require_once($path.'register.php');
+require($path.'register.php');
 
 # Load Required Core Function
-require_once($path.'functions.php');
+require($path.'functions.php');
 
 # Get Existing DB Values
 get_exValues();
 
 # Load Required hooks Function
-require_once($path.'hooks_functions.php');
+require($path.'hooks_functions.php');
 
  
 function funny_brands() {
 	# Plugin Header File
-	require_once($path.'header.php');
+	require($path.'header.php');
 	
 	# General Settings Page  
-	require_once($path.'settings_general.php');
+	require($path.'settings_general.php');
 	
 	# Login Settings Page 
-	require_once($path.'settings_login.php');
+	require($path.'settings_login.php');
 	
 	# SMTP Settings Page 
-	require_once($path.'settings_smtp.php');
+	require($path.'settings_smtp.php');
 	
 	# settings_translations Page 
-	require_once($path.'settings_translations.php');
+	require($path.'settings_translations.php');
 	
 	# Plugins Footer File
-	require_once($path.'footer.php');
+	require($path.'footer.php');
 }
 ?>
