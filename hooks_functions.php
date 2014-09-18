@@ -16,6 +16,7 @@
 */
 
 defined('ABSPATH') or die("No script kiddies please!");
+
 # Login Redirect Function
 if(funnyBranding_setting('login_redirect_url',true)) {
 	
@@ -54,11 +55,13 @@ if(funnyBranding_setting('footer_text',true)) {
 
 
 # custom login page style
-if(funnyBranding_setting('login_page_style',true)) {
+if(funnyBranding_setting('user_login_style',true)) {
 	function login_style(){
- 		echo '<style>'.funnyBranding_setting('login_page_style',true).'</style>';
+ 		global $login_css_url;
+		wp_enqueue_style('funny-branding-custom-login-style', $login_css_url, '', '2', false );  
 	}
-	add_action( 'login_enqueue_scripts', 'login_style' );
+		add_action( 'login_enqueue_scripts', 'login_style' );
+	
 }
 
 # Add jQuery In Login Page
@@ -78,7 +81,7 @@ if(funnyBranding_setting('user_login_script',true)) {
 	add_action( 'login_footer', 'login_script' );
 }
 
-# custom login page script
+# Add Codex Form
 if(funnyBranding_setting('add_codex_search_form',true)) {
 	function wp_codex_search_form() {
 	echo '<form target="_blank" method="get" action="http://wordpress.org/search/do-search.php" class="alignright" style="margin: 11px 5px 0;">
@@ -109,7 +112,7 @@ if(funnyBranding_setting('custom_favicon',true)){
 
 
 # Website Screen Shot
-if(funnyBranding_setting('web_shot',true)){
+if(funnyBranding_setting('webshot_code',true)){
 
  function wpr_snap($atts, $content = null) {
         extract(shortcode_atts(array(
@@ -127,6 +130,88 @@ if(funnyBranding_setting('web_shot',true)){
 add_shortcode("snap", "wpr_snap");
 }
 
+
+
+
+
+# Iframe Short Code
+if(funnyBranding_setting('iframe_code',true)){
+	
+	function GenerateIframe( $atts ) {
+		extract( shortcode_atts( array(
+			'href' => 'http://the-url',
+			'height' => '550px',
+			'width' => '600px',     
+		), $atts ) );
+
+		return '<iframe src="'.$href.'" width="'.$width.'" height="'.$height.'"> <p>Your Browser does not support Iframes.</p></iframe>';
+	}
+	add_shortcode('iframe', 'GenerateIframe');
+}
+
+
+# Remote File Include Short code
+if(funnyBranding_setting('rfilei_code',true)){
+	function getfile_content( $atts ) {
+ 
+		extract( shortcode_atts( array( 'fileurl' => 'http://the-url' ), $atts ) );
+		 
+		if ($fileurl!='') {
+			return @file_get_contents($fileurl);
+		}
+			
+	}
+	add_shortcode( 'getfile', 'getfile_content' );
+}
+
+# Blog Info Shortcode
+if(funnyBranding_setting('blogInfo',true)){
+function bloginfo_shortcode($atts) {
+     extract(shortcode_atts(array( 'key' => '', ), $atts));
+    return get_bloginfo($key);
+}
+
+add_shortcode('bloginfo', 'bloginfo_shortcode');
+
+}
+
+
+# Blog Info Shortcode
+if(funnyBranding_setting('postInfo',true)){
+	
+
+	function shortcode_field($atts){
+	  extract(shortcode_atts(array( 'post_id' => NULL, ), $atts));
+
+	  if(!isset($atts[0])) return;
+	  $field = esc_attr($atts[0]);
+
+	  global $post;
+	  $post_id = (NULL === $post_id) ? $post->ID : $post_id;
+
+	  return get_post_meta($post_id, $field, true);
+	}
+	
+	add_shortcode('field', 'shortcode_field');
+}
+
+if(funnyBranding_setting('adminBarmoveDown',true)){
+	function stick_admin_bar_to_bottom_css() { 
+		global $plug_url;
+		$version = get_bloginfo( 'version' );
+
+		if ( version_compare( $version, '3.3', '<' ) ) {
+			$css_file = 'wordpress-3-1.css';
+		} else {
+			$css_file = 'wordpress-3-3.css';
+		}
+		 
+		wp_enqueue_style( 'stick-admin-bar-to-bottom', $plug_url.'css/' . $css_file);
+	}
+
+	add_action( 'admin_init', 'stick_admin_bar_to_bottom_css' );
+	add_action( 'wp_enqueue_scripts', 'stick_admin_bar_to_bottom_css' );
+}
 # Custom SMTP Settings
 if(funnyBranding_setting('smtp_status',true)){
 	add_action('phpmailer_init','send_smtp_email');
@@ -144,9 +229,8 @@ if(funnyBranding_setting('smtp_status',true)){
 	}
 }
 
+# Dynimic Translation
 if(funnyBranding_setting('trans',true)){
-
-
 function learn_gettext( $translation, $text ) {
    $trans = array_values(funnyBranding_setting('trans',true));
    $dirty = false;
@@ -171,5 +255,22 @@ function learn_gettext( $translation, $text ) {
    return $translation;
 }
 add_filter( 'gettext', 'learn_gettext', 10, 2 );
+}
+
+
+if(funnyBranding_setting('welcome_text',true)){
+
+	add_filter('gettext', 'change_howdy', 10, 3);
+
+	function change_howdy($translated, $text, $domain) {
+
+		if (!is_admin() || 'default' != $domain)
+			return $translated;
+
+		if (false !== strpos($translated, 'Howdy'))
+			return str_replace('Howdy', funnyBranding_setting('welcome_text',true), $translated);
+
+		return $translated;
+	}
 }
 ?>

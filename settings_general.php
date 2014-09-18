@@ -19,6 +19,11 @@ defined('ABSPATH') or die("No script kiddies please!"); ?>
 	<tbody> 
 
 		<tr valign="top">
+			<th class="titledesc" scope="row"> <label for="adminBarmoveDown">Move Admin Bar Down</label> </th>
+			<td class="forminp forminp-select"> <label><input name="funnybranding[adminBarmoveDown]" id="adminBarmoveDown" type="checkbox" class="ios-switch" <?php if(funnyBranding_setting('adminBarmoveDown',true)) {echo 'checked'; } ?> /> </label>
+			</td>
+		</tr>
+		<tr valign="top">
 			<th class="titledesc" scope="row"> <label for="footer_verison_hide">Add Wordpress CodeX Form</label> </th>
 			<td class="forminp forminp-select"> <label><input name="funnybranding[add_codex_search_form]" id="add_codex_search_form" type="checkbox" class="ios-switch" <?php if(funnyBranding_setting('add_codex_search_form',true)) {echo 'checked'; } ?> /> </label>
 				<p class="inline-block description">adds search form to search in Wordpress CodeX.</p>
@@ -32,6 +37,12 @@ defined('ABSPATH') or die("No script kiddies please!"); ?>
 			</td>
 		</tr>
 		
+		<tr valign="top">
+			<th class="titledesc" scope="row"> <label for="welcome_text">Howdy Text </label> </th>
+			<td class="forminp forminp-select"> <input id="welcome_text" class="regular-text" type="text" value="<?php funnyBranding_setting('welcome_text'); ?>" name="funnybranding[welcome_text]">
+				<p class="description">Enter a custom text to change " Howdy ".</p>
+			</td>
+		</tr>		
 		
 		
 		<tr valign="top">
@@ -57,26 +68,7 @@ defined('ABSPATH') or die("No script kiddies please!"); ?>
 				<p class="inline-block description">Keep Right Menu Bar Closed.</p>
 			</td>
 		</tr>
-		
-		<tr valign="top">
-			<th class="titledesc" scope="row"> <label for="web_shot">Remote Web Screen Shot</label> </th>
-			<td class="forminp forminp-select"> <label><input name="funnybranding[web_shot]" id="web_shot" type="checkbox" class="ios-switch" <?php if(funnyBranding_setting('web_shot',true)) {echo 'checked'; } ?> /> </label>
-				<p class="description">Take Website Screen Shot Using Short Code <br/>
-					How To Use : <code>[snap url="http://www.google.com" alt="Cool Site!" w="300px" h="300px"]</code>
-					<br/>
-					<code><strong>url </strong></code> = Website URL <br/>
-					<code><strong>alt </strong></code> = Text For Image <br/>
-					<code><strong>w </strong></code> = Image Width <br/>
-					<code><strong>h </strong></code> = Image Height <br/>
-					
-				.</p>
-			</td>
-		</tr>
-		
-		
-		
-		
-		
+ 
 		<tr valign="top">
 			<th class="titledesc" scope="row"> </th>
 			<td class="forminp forminp-select">

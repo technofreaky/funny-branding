@@ -31,6 +31,7 @@ global $plug_url,$notice;
 			<a data-nav="general" class="nav-tab nav-tab-active"  >General</a>
 			<a data-nav="login" class="nav-tab " >Login Page</a>
 			<a data-nav="smtp"  class="nav-tab " >SMTP</a>
+			 <a data-nav="shortcode"  class="nav-tab " >Shortcodes</a>
 			<a data-nav="translations"  class="nav-tab " >Custom Translations</a>
 		</h2>
 	

@@ -35,7 +35,7 @@ defined('ABSPATH') or die("No script kiddies please!"); ?>
 			<th class="titledesc" scope="row"> <label for="login_page_style">Login Page Style </label> </th>
 			<td class="forminp forminp-select">
  
-				<textarea rows="5" cols="39" id="login_page_style" name="funnybranding[login_page_style]" class="regular-text"><?php funnyBranding_setting('login_page_style'); ?></textarea>
+				<textarea rows="5" cols="39" id="login_page_style" name="funnybranding[login_page_style]" class="regular-text"><?php  echo  funnyBranding_setting('login_page_style'); ?></textarea>
 				<p class="description">Enter your custom style for login page <br/> <strong>Note : </strong> Do not enter style code with <code>style tag</code></p>
 				
 			</td>
@@ -50,7 +50,7 @@ defined('ABSPATH') or die("No script kiddies please!"); ?>
 			<th class="titledesc" scope="row"> <label for="login_page_script">Login Page Script </label> </th>
 			<td class="forminp forminp-select">
  
-				<textarea rows="5" cols="39" id="login_page_script" name="funnybranding[login_page_script]" class="regular-text"><?php funnyBranding_setting('login_page_script'); ?></textarea>
+				<textarea rows="5" cols="39" id="login_page_script" name="funnybranding[login_page_script]" class="regular-text"><?php echo funnyBranding_setting('login_page_script');?></textarea>
 				<p class="description">Enter your custom script for login page <br/> <strong>Note : </strong> Do not enter script code with <code>script tag</code></p>
 			</td>
 		</tr>

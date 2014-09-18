@@ -1,0 +1,29 @@
+* html body {
+    margin-top: 0 !important; 
+}
+
+html.wp-toolbar {
+    padding-top: 0px;
+}
+
+body.admin-bar {
+	margin-top: 0;
+	padding-bottom: 28px;
+}
+
+body.wp-admin #footer {
+	padding-bottom: 28px;
+}
+
+#wpadminbar {
+	top: auto !important;
+	bottom: 0;
+}
+
+#wpadminbar .quicklinks .ab-sub-wrapper {
+	bottom: 28px;
+}
+
+#wpadminbar .quicklinks .ab-sub-wrapper ul .ab-sub-wrapper {
+	bottom: -7px;
+}
