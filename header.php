@@ -15,25 +15,15 @@
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 defined('ABSPATH') or die("No script kiddies please!"); 
-global $plug_url,$notice;
+global $fyb_plug_url,$fyb_notice,$fyb_page_title;
 
 ?> 
-
-<link href="<?php echo $plug_url; ?>css/font-awesome.min.css" rel="stylesheet"/>
-<link href="<?php echo $plug_url; ?>css/style.css" rel="stylesheet"/>
-<script src="<?php echo $plug_url; ?>js/script.js"></script>
-<div class="wrap">
-	<?php echo $notice; ?>
-	<h2>Funny Brandings</h2>
  
- 	
-		 <h2 id="navContainer" class="nav-tab-wrapper woo-nav-tab-wrapper">
-			<a data-nav="general" class="nav-tab nav-tab-active"  >General</a>
-			<a data-nav="login" class="nav-tab " >Login Page</a>
-			<a data-nav="smtp"  class="nav-tab " >SMTP</a>
-			 <a data-nav="shortcode"  class="nav-tab " >Shortcodes</a>
-			<a data-nav="translations"  class="nav-tab " >Custom Translations</a>
-		</h2>
-	
+<div class="wrap">
+	<?php echo $fyb_notice; ?>
+	<h2><?php  echo  $fyb_page_title; ?></h2>
+
 	<form enctype="multipart/form-data" action="" id="mainform" method="post">
 	<?php wp_nonce_field('update-options');  ?>
+        
+       

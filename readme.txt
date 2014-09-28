@@ -1,73 +1,90 @@
-=== Funny Branding ===
+=== Funny Brands ===
+Contributors: varunms
 Author URI: http://varunsridharan.in/
 Plugin URL: https://wordpress.org/plugins/funny-branding/
-Donate link: http://varunsridharan.in/
-Tags: branding,smtp,translations,login,login screen,admin,admin panel,,White Lable,admin bar, admin-theme, adminbar, background, branded, branding,  custom logo, custom wordpress admin, customization, dashboard, login screen, logo, scheme, wp-admin, header bar
-Requires at least: 3.0.1
+Tags: branding,smtp,translations,login,login screen,admin,admin panel,,White Lable,admin bar, admin-theme, adminbar, background, branded, branding,  custom logo, custom wordpress admin, customization, dashboard, login screen, logo, scheme, wp-admin, header bar,custom field
+Requires at least: 3.0
 Tested up to: 4.0
-Stable tag: 0.5
+Stable tag: 1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
- 
 
-A Simple plugin to brand your wordpress admin panel
+
+Funny Brands is a simple plugin which helps you to brand your wordpress admin panel. and also has many build in features
 
 == Description ==
 
-Funny Branding is a simple plugin which helps you to brand your wordpress admin panel.
+Funny Brands is a simple plugin which helps you to brand your wordpress admin panel.
 
 <h4>Plugin Feature List</h4>
 
-* Adds CodeX Search From
-* Custom Favion for admin panel
-* Hides Wordpress Version
-* Changes admin footer text
-* hide wp-admin menubar in left
-* take remote website screen shot
-* login url redirect
-* adjust auto logout time
-* add login page style & script
-* Added option to enqueue jQuery in WordPress login page
-* configure Email SMTP details  and use default wp_mail function
-* Dynimic translations
+* Change Wordpress General Settings
+* Wordpress Login Page customizations
+* Adding default content to your post and pages
+* Configure SMTP for email communications
+* Add Meta Information for Media Library
+* Custom Field Name Changer
+* Essential Shortcode
+* Custom Translation for changing default conventions
 
 
 <h4> Supports / Contributions Thanks</h4>
 * I Would like to thank for <a href="http://profiles.wordpress.org/coenjacobs/">coenjacobs</a> for his plugin <a href="http://wordpress.org/plugins/stick-admin-bar-to-bottom/"> <i> Stick Admin Bar To Bottom </i> </a>. which i have adopted the code for this plugin.. once again thanks <strong><i>coenjacobs</i></strong>
 
-* Some shortcodes Adopted from <a href="http://wpengineer.com">WP Engineer</a>. I would like to thank <strong> <i>WP Engineer</i></strong> Team..
-
-* Some functions Adopted from <a href="http://wordpress.stackexchange.com/q/1567/18746">WordPress StackExchange</a>. I would like to thank <strong> <i>WordPress StackExchange</i></strong> Team..
-
-== Installation ==
-
-This section describes how to install the plugin and get it working.
-
-* Upload `funny-branding` to the `/wp-content/plugins/` directory
-* Give Full permision to `/wp-content/plugins/funny-branding/js/login.js` &  `/wp-content/plugins/funny-branding/css/login.css` for Custom login page css & js
-* Activate the plugin through the \'Plugins\' menu in WordPress
-* Configure options under settings menu [Funny Branding]
-
+* Some shortcodes Adopted from <a href="http://wpengineer.com">WP Engineer</a> & <a href="http://wpsnipp.com">WP Snipp</a>. I would like to thank <strong> <i>WP Engineer</i></strong> Team..
+ 
+* Some functions Adopted from <a href="http://wordpress.stackexchange.com/q/1567/18746">WordPress StackExchange</a> & <a href="http://wpsnipp.com">WP Snipp</a> . I would like to thank <strong> <i>WordPress StackExchange</i></strong> &  <strong> <i>WP Snipp</i></strong> Team...
 
 == Screenshots ==
+1. Screenshot 1
+2. Screenshot 2
+3. Screenshot 3
+4. Screenshot 4
+5. Screenshot 5
+6. Screenshot 6
+7. Screenshot 7
+8. Screenshot 8
+9. Screenshot 9
+10. Screenshot 10
+11. Screenshot 11
+12. Screenshot 12
+13. Screenshot 13
 
-1. Plugin Page registed under settings menu
-2. Some General Branding Option for wp-admin
-3. Branding Option For wp-admin login page which includes [Login Redirect Url, Auto Logout Time, Login Page Style & Script]
-4. Option To Configure Your SMTP to tell wordpress to use your smtp details
-5. Some Built In Shortcode options
-6. Dynimic Translations for Dynimic Text
+== Installation ==
+* Upload `funny-branding` to the `/wp-content/plugins/` directory
+* Activate the plugin through the \'Plugins\' menu in WordPress
+* Configure options under settings menu [Funny Brands]
 
 == Frequently Asked Questions ==
-
 **I have an idea for your plugin!**  
-That\\\'s great. We are always open to your input, and we would like to add anything we think will be useful to a lot of people. Please send your comment/idea to <a href=\"mailto:varunsridharan23@gmail.com\">varunsridharan23@gmail.com</a>
+That\\\\\\\'s great. We are always open to your input, and we would like to add anything we think will be useful to a lot of people. Please send your comment/idea to varunsridharan23@gmail.com
 
 **I found a bug!**  
-Oops. Please User github / WordPress to post bugs.
- 
+Oops. Please User github / WordPress to post bugs. 
+Github : https://github.com/technofreaky/funny-branding
 
 == Changelog ==
+= 1.0 =
+* Custom Dashboard Logo
+* Custom Avatars
+* Disable Shake Effect
+* Registration Success Redirect URL 
+* Auto Twitter Username Linking
+* Add Social Share
+* Post Thumbnails in RSS Feeds
+* Generate Link QrCode
+* Add Post Thumbnail Section
+* Custom Excerpt Length
+* Customize Excerpt More
+* Custom Post Status Colour
+* Show Image Metadata in Library
+* Google Trends ShortCode
+* Google charts ShortCode 
+* Custom Field Rename
+* Custom Field Delete
+* Custom Field Report
+
+
 
 = 0.5 =
 * Fixed show login js & css content after saving
@@ -78,7 +95,7 @@ Oops. Please User github / WordPress to post bugs.
 * Added Remote File Include ShortCode
 * Added Blog Info ShortCode
 * Added Post Custom Field ShortCode
-* Added Option to change 'Howdy' Text
+* Added Option to change \'Howdy\' Text
 
 = 0.4 =
 * Fixed plugin issue in WordPress 3.5.1

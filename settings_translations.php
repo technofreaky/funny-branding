@@ -15,65 +15,61 @@
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 defined('ABSPATH') or die("No script kiddies please!");
-$total = 0;
+$fyb_total = 0;
+
+function fyb_give_layout($fyb_k,$value){
+return '<tr id="'.$fyb_k.'" valign="top">
+		<td class="forminp forminp-select">
+			<input id="trans['.$fyb_k.'][key]" class="regular-text" type="text" value="'.@$value['key'].'" name="funnybranding[translate][trans]['.$fyb_k.'][key]">
+		</td>
+		 
+		<td class="forminp forminp-select">
+			<input id="trans['.$fyb_k.'][val]" class="regular-text" type="text" value="'.@$value['val'].'" name="funnybranding[translate][trans]['.$fyb_k.'][val]">
+		</td>
+		<td class="forminp forminp-select"> 
+            <button data-id="'.$fyb_k.'" class="addmore button button-secondary" type="button" name="addmore"><i class="fa fa-plus fa-1x"></i>
+</button>
+            <button data-id="'.$fyb_k.'" class="delete button button-secondary" type="button" name="delete"><i class="fa fa-trash fa-1x"></i>
+</button>
+
+		</td>
+	</tr>';
+}    
+
 if(funnyBranding_setting('trans',true)){
-$trans = array_values(funnyBranding_setting('trans',true));
-$total = count($trans);
-$layout = '';
+$fyb_trans = array_values(funnyBranding_setting('trans',true));
+$fyb_total = count($fyb_trans);
+$fyb_layout = '';
+$fyb_count = 0;
 
 
-foreach($trans as $k => $tra){
- 
-	$layout .= '<tr valign="top">
-		<td class="forminp forminp-select">
-			<input id="trans['.$k.'][key]" class="regular-text" type="text" value="'.$tra['key'].'" name="funnybranding[trans]['.$k.'][key]">
-		</td>
-		<td class="forminp forminp-select text-center"> ==> </td>
-		<td class="forminp forminp-select">
-			<input id="trans['.$k.'][val]" class="regular-text" type="text" value="'.$tra['val'].'" name="funnybranding[trans]['.$k.'][val]">
-		</td>
-		<td class="forminp forminp-select">
-			<input id="delete" class="button button-secondary" type="button" value="Delete" name="delete">
-		</td>
-	</tr>';	
+    
+foreach($fyb_trans as $fyb_k => $fyb_tra){
+ 	$fyb_layout .= fyb_give_layout($fyb_count,$fyb_tra);
+    $fyb_count++; 
 }
 
 } else  {
-$layout .= '<tr valign="top">
-		<td class="forminp forminp-select">
-			<input id="trans[0][key]" class="regular-text" type="text" name="funnybranding[trans][0][key]">
-		</td>
-		<td class="forminp forminp-select text-center"> ==> </td>
-		<td class="forminp forminp-select">
-			<input id="trans[0][val]" class="regular-text" type="text"  name="funnybranding[trans][0][val]">
-		</td>
-		<td class="forminp forminp-select">
-			<input id="delete" class="button button-secondary" type="button" value="Delete" name="delete">
-		</td>
-	</tr>';		
+$fyb_layout = fyb_give_layout(1,'');		
 }
-
-
 ?>
-<table id="translations" class="tab form-table hidden">
-	<tbody> 
-		<tr valign="top">
-			<th class="titledesc" scope="row"> Old String</th>
-			<th class="titledesc" scope="row">  </th>
-			<th class="titledesc" scope="row"> New String</th>
-			<th class="titledesc" scope="row">Option</th>
-		</tr>
-		<?php echo $layout; ?>
- 		<tr valign="top">
-			<th class="titledesc" scope="row"> <input id="addmore" class="button button-secondary" type="button" value="Add More" name="addmore"></th>
-			<td class="forminp forminp-select">
-				<input id="trans_update" class="button button-primary" type="submit" value="Save Translations" name="save_changes">
-			</td>
-		</tr>
-		
-	</tbody>
-</table>
- 
+<div  id="translate" class="tab tab-table">
+
+
+    <table id="translations" class="tab tab-table">
+        <tbody> 
+
+            <tr valign="top">
+                <th class="titledesc" scope="row">Existing String</th>
+                <th class="titledesc" scope="row">New String</th>
+                <th class="titledesc" scope="row">Options</th>
+            </tr>
+            <?php echo $fyb_layout; ?>
+
+        </tbody>
+    </table>
+    <input id="trans_update" class="button button-primary" type="submit" value="Save Translations" name="save_changes">
+</div>
 <script>
-var current = <?php echo $total; ?>;
+var current = <?php echo $fyb_total; ?>;
 </script>

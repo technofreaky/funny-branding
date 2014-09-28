@@ -18,70 +18,100 @@ defined('ABSPATH') or die("No script kiddies please!");
  
 ?>
 
-<table id="shortcode" class="tab hidden form-table">
+<h2 id="navContainer" class="nav-tab-wrapper woo-nav-tab-wrapper">
+	<a data-nav="post_shortcode" class="nav-tab nav-tab-active"  >Post / Pages</a>
+	<a data-nav="utilites" class="nav-tab " >Utilites</a> 
+</h2>
+
+<table id="post_shortcode" class="tab active tab-table">
 	<tbody> 
       
 		<tr valign="top">
-			<th class="titledesc" scope="row"> <label for="webshot_code">Remote Web Screen Shot</label> </th>
-			<td class="forminp forminp-select"> <label><input name="funnybranding[webshot_code]" id="web_shot" type="checkbox" class="ios-switch" <?php if(funnyBranding_setting('webshot_code',true)) {echo 'checked'; } ?> /> </label>
-				<p class="description inline-block ">Take Website Screen Shot Using Short Code</p>
+			<th class="titledesc" scope="row"> <label for="webshot_code">Website Screen Shot</label> </th>
+			<td class="forminp forminp-select"> 
+				<label>
+					<input name="funnybranding[shortcode][webshot_code]"  type="checkbox" <?php fyb_chkbx('webshot_code') ?> /> 
+				</label> 
 				<p class="description"> 
-					How To Use : <code>[snap url="http://www.google.com" alt="Cool Site!" w="300px" h="300px"]</code>
-					<br/>
-					<code><strong>url </strong></code> = Website URL  <code><strong>alt </strong></code> = Text For Image <br/>
-					<code><strong>w </strong></code> = Image Width  <code><strong>h </strong></code> = Image Height <br/>
-					
-				.</p>
+					How To Use : <code>[snap url="http://www.google.com" alt="Cool Site!" w="300px" h="300px"]</code> </p>
 			</td>
 		</tr>
 		
       
 		<tr valign="top">
 			<th class="titledesc" scope="row"> <label for="iframe_code">iFrame Shortcode</label> </th>
-			<td class="forminp forminp-select"> <label><input name="funnybranding[iframe_code]" id="iframe_code" type="checkbox" class="ios-switch" <?php if(funnyBranding_setting('iframe_code',true)) {echo 'checked'; } ?> /> </label>
-				<p class="description"> 
-					How To Use : <code>[iframe href="http://www.exmaple.com" height="480" width="640"]</code>
-									.</p>
+			<td class="forminp forminp-select"> 
+				<label>
+					<input name="funnybranding[shortcode][iframe_code]" type="checkbox" <?php fyb_chkbx('iframe_code') ?> /> 
+				</label>
+				<p class="description"> How To Use : <code>[iframe url="http://www.exmaple.com" h="480" w="640"]</code> .</p>
 			</td>
 		</tr>		
-		
-		
-      
+ 
+
 		<tr valign="top">
-			<th class="titledesc" scope="row"> <label for="rfilei_code">Remote File Include Shortcode</label> </th>
-			<td class="forminp forminp-select"> <label><input name="funnybranding[rfilei_code]" id="rfilei_code" type="checkbox" class="ios-switch" <?php if(funnyBranding_setting('rfilei_code',true)) {echo 'checked'; } ?> /> </label>
-				<p class="inline-block description">Easy to include remote file / doc with Shortcode</p>
-				<p class="description">  How To Use : <code>[getfile fileurl="http://www.exmaple.com/somepage.html"]</code> .</p>
+			<th class="titledesc" scope="row"> <label for="postInfo">Custom Field Value </label> </th>
+			<td class="forminp forminp-select"> 
+				<label>
+					<input name="funnybranding[shortcode][postInfo]" type="checkbox"   <?php fyb_chkbx('postInfo') ?>/>
+				</label> 
+				<p class="description">  How To Use : <code>[field "my_key"]</code> or <code>[field "my_key" post_id=1]</code>. </p>
 			</td>
-		</tr>			
-		
-		
+		</tr>
+        
+       
+		<tr valign="top">
+			<th class="titledesc" scope="row"> <label for="blogInfo">Google Trends</label> </th>
+			<td class="forminp forminp-select"> 
+				<label>
+					<input name="funnybranding[shortcode][fyb_google_trends]" type="checkbox"  <?php fyb_chkbx('fyb_google_trends') ?> />
+				</label> 
+				<p class="description">  How To Use : <code>[trends h="450" w="500" q="wpsnipp,wordpress,+wordpress+theme,+wordpress+plugin,+wordpress+snippets" geo="US"]</code>.  
+				</p>
+			</td>
+		</tr>
+        
+       
+		<tr valign="top">
+			<th class="titledesc" scope="row"> <label for="blogInfo">Google charts</label> </th>
+			<td class="forminp forminp-select"> 
+				<label>
+					<input name="funnybranding[shortcode][fyb_google_chart]" type="checkbox"  <?php fyb_chkbx('fyb_google_chart') ?> />
+				</label> 
+				<p class="description">  How To Use : <code>[chart data="41,37.89" labels="Reffering+sites|Search+Engines"  colors="ff0000,005599" size="488x200" title="Traffic  Sources" type="pie"]</code>.  
+				</p>
+			</td>
+		</tr>        
+        
+	</tbody>
+</table>   
+<table id="utilites" class="tab hidden tab-table">
+	<tbody> 
+      
+		   
       
 		<tr valign="top">
-			<th class="titledesc" scope="row"> <label for="blogInfo">Get Blog / WP Info Shortcode</label> </th>
-			<td class="forminp forminp-select"> <label><input name="funnybranding[blogInfo]" id="blogInfo" type="checkbox" class="ios-switch" <?php if(funnyBranding_setting('blogInfo',true)) {echo 'checked'; } ?> /> </label>
-				<p class="inline-block description">Get Wordpress information using BlogInfo Shortcode</p>
+			<th class="titledesc" scope="row"> <label for="blogInfo">Blog Info Shortcode</label> </th>
+			<td class="forminp forminp-select"> 
+				<label>
+					<input name="funnybranding[shortcode][blogInfo]" type="checkbox"  <?php fyb_chkbx('blogInfo') ?> />
+				</label> 
 				<p class="description">  How To Use : <code>[bloginfo key='name']</code>. <br/>
 					For more Keys please refer <a href="http://codex.wordpress.org/Function_Reference/bloginfo">http://codex.wordpress.org/Function_Reference/bloginfo</a> 
 				</p>
 			</td>
 		</tr>		
-		
-		
-      
+ 
 		<tr valign="top">
-			<th class="titledesc" scope="row"> <label for="postInfo">Get Customfield Value Shortcode</label> </th>
-			<td class="forminp forminp-select"> <label><input name="funnybranding[postInfo]" id="postInfo" type="checkbox" class="ios-switch" <?php if(funnyBranding_setting('postInfo',true)) {echo 'checked'; } ?> /> </label>
-				<p class="inline-block description">Get Post / Page Custom Field Value Using Shortcode</p>
-				<p class="description">  How To Use : <code>[field "my_key"]</code> or <code>[field "my_key" post_id=1]</code>. 			</p>
+			<th class="titledesc" scope="row"> <label for="blogInfo">Get User IP</label> </th>
+			<td class="forminp forminp-select"> 
+				<label>
+					<input name="funnybranding[shortcode][user_ip]" type="checkbox"  <?php fyb_chkbx('user_ip') ?> />
+				</label> 
+				<p class="description">  How To Use : <code>[show_ip]</code>.</p>
 			</td>
-		</tr>			
-		<tr valign="top">
-			<th class="titledesc" scope="row"> </th>
-			<td class="forminp forminp-select">
-				<input id="general_update" class="button button-primary" type="submit" value="Save Shortcode Settings" name="save_changes">
-			</td>
-		</tr>
-		
+		</tr>		
 	</tbody>
-</table> 
+</table>
+
+<input id="general_update" class="button button-primary" type="submit" value="Save Shortcode Settings" name="save_changes">
