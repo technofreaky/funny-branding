@@ -1,0 +1,9 @@
+Changes In Funny Branding 1.0
+
+Fixed Plugin Compatability issue
+Fixed Plugin errors
+Added media uploader for favion
+Removed Wordpress codex search form option 
+Removed Script Saving In File / Insted used DB
+Removed Style Saving In File / Insted used DB
+Hooked Hide Wordpress Version to removed version from Sites's Metatag

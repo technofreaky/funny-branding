@@ -151,18 +151,7 @@ echo '</table>';
 	
 </table>
 
-<div class="fyb-model-content" style="display: none;" id="viewAllPost"> <div class="fyb-model-header"> <h3 class="inline-block">jQuery Custombox</h3><a class="close" href="javascript:jQuery.fn.custombox('close');" type="button">&#215;</a> </div> <div class="fyb-model-body">   </div> </div>
-
-<div class="fyb-model-content" style="display: none;" id="editFiled"> <div class="fyb-model-header"> <h3 class="inline-block">jQuery Custombox</h3><a class="close" href="javascript:jQuery.fn.custombox('close');" type="button">&#215;</a> </div> <div class="fyb-model-body">   </div> </div>
  
-<div class="fyb-model-content" style="display: none;" id="deleteField"> 
-	<div class="fyb-model-header"> <h3 class="inline-block">Custom Field Delete</h3>
-		<a class="close" href="javascript:jQuery.fn.custombox('close');" type="button">&#215;</a> 
-	</div> 
-	<div class="fyb-model-body">   
-		
-	</div> 
-</div>
 
 <script>
 	var loadingHTML = '<div class="loader">'+
@@ -202,35 +191,43 @@ echo '</table>';
 				
 			   jQuery('button.deleteField').on('click', function ( e ) {
 					var data_id =  jQuery(this).attr('data-custom_field');
+                   
+                    var dlg = jQuery("<div id='deleteField' />").html(loadingHTML).appendTo("body");
+                    dlg.dialog({
+                        dialogClass : '',
+                        modal : true,
+                        autoOpen : false,
+                        closeOnEscape : true,
+                        height: 'auto',
+                        width: 'auto',
+                        buttons : [{
+                                text :  'Close',
+                                class : 'button-primary',
+                                click : function() {
+                                    jQuery(this).dialog('close');
+                                }
+                            }
+                        ]
+                    }).dialog('open');                   
 
-					jQuery.fn.custombox( this, { 
-                        open : function() {
-                            jQuery('div#deleteField div.fyb-model-body ').html(deleteHTML);
-                            jQuery('div#deleteField span#filedname').text(data_id);
-                            jQuery('div#deleteField button#cDelteCField').attr('data-delete',data_id);
-                            
-                        },
-						close: function () {
-							jQuery('div#deleteField div.fyb-model-body ').html(''); 
-						}
-					});	
+ 
 				   
-					jQuery('div#deleteField div.fyb-model-body  button#cDelteCField').click(function(){
+					jQuery('div#deleteField button#cDelteCField').click(function(){
 						var data_id =  jQuery(this).attr('data-delete');
 						jQuery('div#deleteField table#confirmDelete').hide();
-						jQuery('div#deleteField div.fyb-model-body').append(loadingHTML);
-						jQuery('div#deleteField div.fyb-model-body div.loader h4').text('Deleting Please Wait');
+						jQuery('div#deleteField ').append(loadingHTML);
+						jQuery('div#deleteField div.loader h4').text('Deleting Please Wait');
 						jQuery.ajax({
 							type: "POST",
 							url: location.href,
 							data: { fyb_cfld_delete:"yes",fyb_cf_val : data_id}
 						}).done(function( msg ) {
-							jQuery('div#deleteField div.fyb-model-body div.loader').remove();
+							jQuery('div#deleteField div.loader').remove();
 														
 							if(msg.indexOf('success') != -1){
-								jQuery('div#deleteField div.fyb-model-body').append('<h2>Changes Updated Successfully</h2> <h4>Please Re-Sync Data In Plugin </h4>');
+								jQuery('div#deleteField ').append('<h2>Changes Updated Successfully</h2> <h4>Please Re-Sync Data In Plugin </h4>');
 							} else {
-								jQuery('div#deleteField div.fyb-model-body').append('<h3>Failed To Updated Changes Due To : </h3><ul><li>1) Database Error </li> <li>2) Custom Filed Not Exist In The Given Name </li> </ul>');
+								jQuery('div#deleteField ').append('<h3>Failed To Updated Changes Due To : </h3><ul><li>1) Database Error </li> <li>2) Custom Filed Not Exist In The Given Name </li> </ul>');
 							}							
 						});
 
@@ -253,20 +250,39 @@ echo '</table>';
 						url: location.href,
 						data: { fyb_cfld_edit:"yes",fyb_cfld_name: data_id }
 					}).done(function( msg ) {
-					   jQuery('div#editFiled div.fyb-model-body').html(msg);
+					   jQuery('div#editBox').html(msg);
 					}); 
 				   
-					jQuery.fn.custombox( this, { 
+                    var dlg = jQuery("<div id='editBox' />").html(loadingHTML).appendTo("body");
+                    dlg.dialog({
+                        dialogClass : '',
+                        modal : true,
+                        autoOpen : false,
+                        closeOnEscape : true,
+                        height: 'auto',
+                        width: 'auto',
+                        buttons : [{
+                                text :  'Close',
+                                class : 'button-primary',
+                                click : function() {
+                                    jQuery(this).dialog('close');
+                                }
+                            }
+                        ]
+                    }).dialog('open');                   
+                   
+					/*jQuery.fn.custombox( this, { 
 						cache:false,
 						open:function(){ jQuery('body').css('overflow-y','hidden'); },
 						close: function () {
 							jQuery('div.fyb-model-body').html(loadingHTML);
 							jQuery('body').css('overflow-y','scroll');
 						}
-					});				   
+					});	*/			   
 				  e.preventDefault(); 
 			   });
 				
+               
                jQuery('input.viewpost').on('click', function ( e ) {
 					var data_id =  jQuery(this).attr('data-custom_field');
 					jQuery('div#viewAllPost .fyb-model-header > h3').text('Showing Post For '+ data_id + ' Field');
@@ -275,11 +291,27 @@ echo '</table>';
 						url: location.href,
 						data: { fyb_cfld_show:"yes",fyb_cfld_name: data_id }
 					}).done(function( msg ) {
-                        
-					   jQuery('div#viewAllPost div.fyb-model-body').html(msg);
+                       
+					   jQuery('div#myFancyDialog').html(msg);
 					});  
-
-					jQuery.fn.custombox( this, { 
+                    var dlg = jQuery("<div id='myFancyDialog' />").html(loadingHTML).appendTo("body");
+                    dlg.dialog({
+                        dialogClass : '',
+                        modal : true,
+                        autoOpen : false,
+                        height: 'auto',
+                        width: 'auto',                        
+                        closeOnEscape : true,
+                        buttons : [{
+                                text :  'Close',
+                                class : 'button-primary',
+                                click : function() {
+                                    jQuery(this).dialog('close');
+                                }
+                            }
+                        ]
+                    }).dialog('open');
+					/*jQuery.fn.custombox( this, { 
 						cache:false,
 						open:function(){ jQuery('body').css('overflow-y','hidden'); },
 						close: function () {
@@ -288,7 +320,7 @@ echo '</table>';
 							jQuery('body').css('overflow-y','scroll');
                             
 						}
-					});
+					});*/
 					e.preventDefault();
                 });
 				 

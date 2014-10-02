@@ -47,7 +47,8 @@ if ( is_admin() ){
 		wp_enqueue_script('funny_branding_jq_cbox' ); 
 		wp_enqueue_script( 'funny_branding_script' ); 	
 		wp_enqueue_script('wp-color-picker');
-
+        wp_enqueue_script('jquery-ui-dialog');
+        
 		wp_register_style( 'funny_branding_datatbl_st', $fyb_plug_url.'css/jquery.dataTables.min.css', false, '0.5', 'all' );
 		wp_register_style( 'funny_branding_style', $fyb_plug_url.'css/style.css', false, '0.5', 'all' );
         wp_register_style( 'funny_branding_style_custombox', $fyb_plug_url.'css/jquery.custombox.css', false, '0.5', 'all' );
@@ -58,6 +59,7 @@ if ( is_admin() ){
         wp_enqueue_style( 'funny_branding_style_custombox' ); 
 		wp_enqueue_style( 'funny_branding_fa' ); 
         wp_enqueue_style( 'wp-color-picker' ); 
+        wp_enqueue_style("wp-jquery-ui-dialog");
 	}
 	
 	 
